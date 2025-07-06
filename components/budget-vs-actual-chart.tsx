@@ -123,10 +123,10 @@ export function BudgetVsActualChart({ transactions, budgets }: BudgetVsActualCha
                 color: 'var(--text-primary)',
                 backdropFilter: 'blur(20px)',
               }}
-              formatter={(value: number, name: string) => [
-                `$${value.toFixed(2)}`, 
-                name === 'budget' ? 'Budget' : 'Actual'
-              ]}
+              formatter={(value: number, name: string) =>
+  [`$${value.toFixed(2)}`, name === 'budget' ? 'Budget' : 'Actual'] as unknown as [number, string]
+}
+
             />
             <Legend />
             <Bar 

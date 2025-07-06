@@ -102,7 +102,8 @@ export function MonthlyExpensesChart({ transactions }: MonthlyExpensesChartProps
                 color: 'var(--text-primary)',
                 backdropFilter: 'blur(20px)',
               }}
-              formatter={(value: number) => [`$${value.toFixed(2)}`, 'Amount']}
+              formatter={(value: number) => [value, 'Amount']}
+              
               labelFormatter={(label) => `Month: ${label}`}
             />
             <Bar 

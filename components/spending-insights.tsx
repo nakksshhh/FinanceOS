@@ -201,7 +201,10 @@ export function SpendingInsights({ transactions, budgets }: SpendingInsightsProp
                     outerRadius={120}
                     fill="#8884d8"
                     dataKey="value"
-                    label={({ name, percent }) => `${name} ${(percent * 100).toFixed(0)}%`}
+                    label={({ name = '', percent = 0 }) =>
+  `${name} ${(percent * 100).toFixed(0)}%`
+}
+
                   >
                     {pieData.map((entry, index) => (
                       <Cell key={`cell-${index}`} fill={entry.color} />
@@ -215,7 +218,8 @@ export function SpendingInsights({ transactions, budgets }: SpendingInsightsProp
                       boxShadow: 'var(--shadow-lg)',
                       backdropFilter: 'blur(20px)',
                     }}
-                    formatter={(value: number) => [`$${value.toFixed(2)}`, 'Amount']}
+                   formatter={(value: number) => [value, 'Amount']}
+
                   />
                 </PieChart>
               </ResponsiveContainer>
